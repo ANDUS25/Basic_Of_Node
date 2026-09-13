@@ -8,7 +8,7 @@ fs.promises
   .writeFile(
     "example.txt",
     "This file is for promises testing purpose only.",
-    "utf-8"
+    "utf-8",
   )
   .then((data) => {
     console.log(data);
@@ -34,4 +34,3 @@ fs.promises
   .catch((error) => {
     console.log(error);
   });
-
