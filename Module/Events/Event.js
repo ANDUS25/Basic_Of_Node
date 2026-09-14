@@ -1,4 +1,5 @@
-// We can create and handle custom events using EventEmitter in Node.js
+// we can create an Event using the Event Emitter
+
 import EventEmitter from "events";
 
 const emitter = new EventEmitter();
@@ -18,11 +19,16 @@ emitter.on("user_login", (userName) => {
   console.log(`Hello ${userName} How are you doing today?`);
 });
 
-emitter.emit("user_login", "Anand");
-
 // 2. user purchase Event
 emitter.on("user_purchase", (userName, item) => {
   console.log(`${userName} has purcahse this ${item}, Congradulation !!!`);
 });
 
+// 3. user logout event
+emitter.on("user_logout", (userName) => {
+  console.log(`Goodbye ${userName}, See you soon!`);
+});
+
+emitter.emit("user_login", "Anand");
 emitter.emit("user_purchase", "Anand", "Laptop");
+emitter.emit("user_logout", "Anand");
