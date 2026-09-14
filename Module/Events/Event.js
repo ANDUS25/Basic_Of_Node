@@ -10,3 +10,19 @@ emitter.on("greet", (name, extra) => {
 
 // and this is how we can emit the event using the `emit` method. The first argument is the name of the event, and the second argument is the data that we want to pass to the event listener.
 emitter.emit("greet", "Anand", "How are you today?");
+
+// -------------------------------------Tasks-------------------------
+
+// 1. user loin event
+emitter.on("user_login", (userName) => {
+  console.log(`Hello ${userName} How are you doing today?`);
+});
+
+emitter.emit("user_login", "Anand");
+
+// 2. user purchase Event
+emitter.on("user_purchase", (userName, item) => {
+  console.log(`${userName} has purcahse this ${item}, Congradulation !!!`);
+});
+
+emitter.emit("user_purchase", "Anand", "Laptop");
