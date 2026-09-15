@@ -32,3 +32,10 @@ emitter.on("user_logout", (userName) => {
 emitter.emit("user_login", "Anand");
 emitter.emit("user_purchase", "Anand", "Laptop");
 emitter.emit("user_logout", "Anand");
+
+// ------------------------------------------------Methods
+
+// Using this we can register an event listener that will be executed only once, and then it will be removed from the event emitter. This is useful when we want to listen to an event only once, and we don't want to keep listening to it after that.
+emitter.once("once_event", (data) => {
+  console.log(`This is a once event, and the data is: ${data}`);
+});
