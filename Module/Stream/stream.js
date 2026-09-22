@@ -13,6 +13,20 @@ const readFileData = createReadStream(inputFilePath, {
 
 const writeFileData = createWriteStream(outputFilePath);
 
+writeFileData.on("finish", () => {
+  console.log("Data has been successfully copied to the new file.");
+});
+
+writeFileData.on("close", () => {
+  console.log(
+    "Write File has just closed. Data has been successfully copied to the new file.",
+  );
+});
+
+writeFileData.on("error", () => {
+  console.log("An error occurred while writing to the file.");
+});
+
 // whatever data we have read need to pass in that file.
 const data = readFileData.pipe(writeFileData);
 console.log("====================================");
